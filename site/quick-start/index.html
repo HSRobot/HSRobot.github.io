@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>快速开始 - HIROP文档库</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5feb\u901f\u5f00\u59cb";
+    var mkdocs_page_input_path = "quick-start.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> HIROP文档库</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">主页</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入门</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../start/install/">环境搭建</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">快速开始</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#1">1.简介</a></li>
+    
+
+    <li class="toctree-l3"><a href="#2">2.准备工作</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#21">2.1 环境安装</a></li>
+        
+            <li><a class="toctree-l4" href="#22gazebo">2.2安装gazebo模型</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#3">3.实验之前说明</a></li>
+    
+
+    <li class="toctree-l3"><a href="#4hirop">4.HIROP的基础使用教程</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#41">4.1 加载机械臂模型</a></li>
+        
+            <li><a class="toctree-l4" href="#42-rviz">4.2 在rviz中显示模型</a></li>
+        
+            <li><a class="toctree-l4" href="#43">4.3 启动仿真环境</a></li>
+        
+            <li><a class="toctree-l4" href="#44-gazebo">4.4 使用gazebo中的相机</a></li>
+        
+            <li><a class="toctree-l4" href="#45">4.5 虚拟抓取</a></li>
+        
+            <li><a class="toctree-l4" href="#46">4.6 连接实际的机器人</a></li>
+        
+            <li><a class="toctree-l4" href="#47-pick">4.7 启动pick（已知物体位姿）</a></li>
+        
+            <li><a class="toctree-l4" href="#48-pick-and-ork">4.8 启动pick and ork（前提需要对相机进行标定）</a></li>
+        
+            <li><a class="toctree-l4" href="#49-pick-and-ork-rviz-gui">4.9 启动pick and ork (RVIZ GUI)</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">参考手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../chm/">序</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">开发指南</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../dpm/">序</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">环境搭建汇总</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../env-setup/">序</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../resource/">资源汇总</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../problem/">问题汇总</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">关于</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../about/">开源协议</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../about/">更新日志</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">HIROP文档库</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>入门 &raquo;</li>
+        
+      
+    
+    <li>快速开始</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="1">1.简介</h1>
+<p>此仓库为HIROP的软件平台，包含华数机器人部分机械臂的URDF模型、moveit配置、gazebo配置、ROS-I驱动包、夹爪驱动包、rviz控制面板、抓取Demo、抓取仿真环境、基础Demo等示例开发包。</p>
+<p>此平台遵循BSD开源协议。</p>
+<p>支持indigo、kinetic版本。如需下载kinetic版本，请将分支切换至kinetic分支。</p>
+<p>维护者: Kunlin Xu(1125290220@qq.com)</p>
+<h1 id="2">2.准备工作</h1>
+<h2 id="21">2.1 环境安装</h2>
+<p>请先对ROS环境进行安装，支持indigo以及kinetic版本。</p>
+<p>ROS相关教程可参考：<a href="https://github.com/HSRobot/hsr_irp/blob/master/ROS-install.md">完整的安装教程</a></p>
+<h2 id="22gazebo">2.2安装gazebo模型</h2>
+<p>由于indigo版本的gazebo模型源地址更换，所以无法自动获取完整的gazebo模型，按照以下步骤进行离线安装：</p>
+<p>1.从<a href="https://bitbucket.org/osrf/gazebo_models/downloads/">此链接</a>处下载完整的gazebo模型压缩包</p>
+<p>2.将模型解压至 ~/.gazebo/modles 文件夹中</p>
+<h1 id="3">3.实验之前说明</h1>
+<p>HIROP平台支持多型号机械臂，因此以下所有实验均使用<strong><em>br606</em></strong>机械臂作为示例说明。若用户想进行其它支持的机械臂的仿真，则只需将指令中的br606替换成对应型号即可。</p>
+<h1 id="4hirop">4.HIROP的基础使用教程</h1>
+<h2 id="41">4.1 加载机械臂模型</h2>
+<pre><code class="bash">roslaunch hsr_description br606_upload.launch
+</code></pre>
+
+<h2 id="42-rviz">4.2 在rviz中显示模型</h2>
+<pre><code class="bash">$ roslaunch hsr_description display.launch
+</code></pre>
+
+<h2 id="43">4.3 启动仿真环境</h2>
+<h3 id="431">4.3.1 一键启动：</h3>
+<pre><code class="bash">roslaunch hsr_bringup br606_sim.launch
+</code></pre>
+
+<h3 id="432">4.3.2 单独启动（推荐）:</h3>
+<pre><code class="bash">roslaunch hsr_description br606_upload.launch 
+roslaunch hsr_gazebo br606_gazebo.launch
+roslaunch br606_moveit_config hsr_br606_moveit_planning_execution.launch sim:=true
+roslaunch br606_moveit_config moveit_rviz.launch
+</code></pre>
+
+<h2 id="44-gazebo">4.4 使用gazebo中的相机</h2>
+<pre><code class="bash">roslaunch hsr_description br606_with_kinect_upload.launch
+roslaunch hsr_gazebo robot_gazebo.launch
+</code></pre>
+
+<h2 id="45">4.5 虚拟抓取</h2>
+<pre><code class="bash">roslaunch hsr_description br606_with_gripper_upload.launch
+roslaunch br606_moveit_config hsr_br606_moveit_planning_execution.launch sim:=true
+roslaunch br606_moveit_config moveit_rviz.launch
+rosrun hsr_demo moveit_pick_and_place_demo.py
+</code></pre>
+
+<h2 id="46">4.6 连接实际的机器人</h2>
+<h3 id="461">4.6.1 一键启动：</h3>
+<pre><code class="bash">roslaunch hsr_bringup br606_go.launch robot_ip:=10.10.56.214
+</code></pre>
+
+<h3 id="462">4.6.2 单独启动（推荐）：</h3>
+<pre><code class="bash">roslaunch hsr_description br606_upload.launch 
+roslaunch br606_moveit_config br606_moveit_planning_execution.launch sim:=false
+roslaunch hsr_rois_client robot_full_interface_download.launch robot_ip:=10.10.56.214
+roslaunch br606_moveit_config moveit_rviz.launch
+</code></pre>
+
+<h2 id="47-pick">4.7 启动pick（已知物体位姿）</h2>
+<pre><code class="bash">roslaunch hsr_description br606_with_gripper_upload.launch
+roslaunch br606_moveit_config br606_moveit_planning_execution.launch sim:=false
+roslaunch hsr_rosi_client robot_full_interface_download.launch robot_ip:=10.10.56.214
+rosrun hsr_gripper_driver gripper_control_srv
+rosrun hsr_gripper_driver gripper_action.py
+rosrun hsr_pick moveit_pick_and_place_demo.py
+</code></pre>
+
+<h2 id="48-pick-and-ork">4.8 启动pick and ork（前提需要对相机进行标定）</h2>
+<pre><code class="bash">roslaunch kinect2_bridge  kinect2_bridge.launch
+roslaunch hsr_description br606_with_gripper_upload.launch
+roslaunch br606_moveit_config br606_moveit_planning_execution.launch sim:=false
+roslaunch hsr_rosi_client robot_full_interface_download.launch robot_ip:=10.10.56.214
+rosrun hsr_gripper_driver gripper_control_srv
+rosrun hsr_gripper_driver gripper_action.py
+roslaunch hsr_bringup ork_base_tf.launch
+rosrun hsr_pick tf_camera_to_base.py
+rosrun object_recognition_core detection -c  `rospack find object_recognition_linemod`/conf/detection.ros.ork   
+rosrun hsr_pick moveit_pick_and_place_demo.py
+</code></pre>
+
+<h2 id="49-pick-and-ork-rviz-gui">4.9 启动pick and ork (RVIZ GUI)</h2>
+<pre><code class="bash">roslaunch hsr_bringup pick_gui.launch
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chm/" class="btn btn-neutral float-right" title="序">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../start/install/" class="btn btn-neutral" title="环境搭建"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../start/install/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../chm/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

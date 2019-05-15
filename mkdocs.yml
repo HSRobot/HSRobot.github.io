@@ -1,1 +1,25 @@
-site_name: My Docs
+site_name: HIROP文档库
+nav:
+- 主页: 'index.md'
+- 入门: 
+  - 环境搭建: 'start/install.md'
+  - 快速开始: 'quick-start.md'
+- 参考手册: 
+  - 序: 'chm/index.md'
+- 开发指南: 
+  - 序: 'dpm/index.md'
+- 环境搭建汇总:
+  - 序: 'env-setup/index.md'
+- 资源汇总: 'resource.md'
+- 问题汇总: 'problem.md'
+- 关于:
+  - 开源协议: 'about.md'
+  - 更新日志: 'about.md'
+
+extra_css: [extra.css]
+
+theme: readthedocs
+plugins:
+    - search:
+        lang: en
+        foo: bar

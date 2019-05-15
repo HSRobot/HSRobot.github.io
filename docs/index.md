@@ -1,17 +1,14 @@
-# Welcome to MkDocs
+# 序
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+## 简介
+HIROP是一款基于[ROS](http://www.ros.org/)的智能机器人开放开发平台，主要目的在于为智能机器人开放者提供更为完善的软件架构及相关功能软件包。
 
-## Commands
+在ROS的基础上补充了相关感知、识别、抓取等功能模块。
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+## 支持的ROS版本
+* `indigo`
+* `kinetic`
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## 版本
+* `V1.0`
+* `V0.1`
