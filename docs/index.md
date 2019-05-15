@@ -9,6 +9,11 @@ HIROP是一款基于[ROS](http://www.ros.org/)的智能机器人开放开发平�
 * `indigo`
 * `kinetic`
 
+!!! warning
+
+    当前对Kinectic的支持较不完善，建议使用indigo版本进行开发
+
+
 ## 版本
 * `V1.0`
 * `V0.1`

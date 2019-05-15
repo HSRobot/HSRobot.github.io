@@ -1,4 +1,7 @@
 site_name: HIROP文档库
+
+repo_url: https://github.com/HSRobot/HSRobot.github.io
+
 nav:
 - 主页: 'index.md'
 - 入门: 
@@ -18,8 +21,7 @@ nav:
 
 extra_css: [extra.css]
 
+markdown_extensions:
+    - admonition
 theme: readthedocs
-plugins:
-    - search:
-        lang: en
-        foo: bar
+
