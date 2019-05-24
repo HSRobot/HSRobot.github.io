@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>环境搭建 - HIROP文档库</title>
+  <title>ros_qtc_plugin环境搭建 - HIROP文档库</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u73af\u5883\u642d\u5efa";
-    var mkdocs_page_input_path = "start/install.md";
+    var mkdocs_page_name = "ros_qtc_plugin\u73af\u5883\u642d\u5efa";
+    var mkdocs_page_input_path = "env-setup/ros_qtc_plugin.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -58,23 +58,9 @@
 		
     <span class="caption-text">入门</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">环境搭建</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#_1">环境搭建</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ros">ROS环境搭建</a></li>
-        
-            <li><a class="toctree-l4" href="#hirop">HIROP环境搭建</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../start/install/">环境搭建</a>
                 </li>
                 <li class="">
                     
@@ -111,11 +97,25 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../env-setup/">序</a>
+    <a class="" href="../">序</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../env-setup/ros_qtc_plugin/">ros_qtc_plugin环境搭建</a>
+    <a class="current" href="./">ros_qtc_plugin环境搭建</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#ros_qtc_plugin">ros_qtc_plugin编译</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">准备</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">编译</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -167,14 +167,14 @@
     
       
         
-          <li>入门 &raquo;</li>
+          <li>环境搭建汇总 &raquo;</li>
         
       
     
-    <li>环境搭建</li>
+    <li>ros_qtc_plugin环境搭建</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/HSRobot/HSRobot.github.io/edit/master/docs/start/install.md"
+        <a href="https://github.com/HSRobot/HSRobot.github.io/edit/master/docs/env-setup/ros_qtc_plugin.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -184,67 +184,41 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1">环境搭建</h1>
-<p>当前教程基于ROS indigo</p>
-<hr />
-<h2 id="ros">ROS环境搭建</h2>
-<h3 id="_2">设置源</h3>
-<pre><code class="bash">sudo sh -c '. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.ustc.edu.cn/ros/ubuntu/ $DISTRIB_CODENAME main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list'
+                <h1 id="ros_qtc_plugin">ros_qtc_plugin编译</h1>
+<p>ROS下编译qtc插件</p>
+<h2 id="_1">准备</h2>
+<p>在编译qtc插件之前，需要准备下载源码</p>
+<ul>
+<li><a href="http://download.qt.io/archive/qtcreator/">QT Creator源码</a></li>
+<li><a href="https://github.com/ros-industrial/ros_qtc_plugin">ros_qtc_plugin源码</a></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>需要注意两个源码的版本需要对应，建议使用系统中的QT版本所对应的QT Creator版本</p>
+</div>
+<h2 id="_2">编译</h2>
+<p>在编译之前，我们需要注意以下事项</p>
+<ul>
+<li>QT Creator和ros_qtc_plugin的源码应当放在同一目录下</li>
+<li>QT Creator的源码目录名应当为<code>qt-creator</code></li>
+<li>QT Creator的编译目录名应当为<code>qt-creator-build</code></li>
+</ul>
+<h3 id="lxqt-build-tools">编译 lxqt-build-tools</h3>
+<pre><code class="bash">$ git clone https://github.com/lxqt/lxqt-build-tools.git
+$ cd lxqt-build-tools
+$ cmake ./
+$ sudo make install
 </code></pre>
 
-<h3 id="_3">设置密钥</h3>
-<pre><code class="bash">sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+<h3 id="qtermwidget">编译 qtermwidget</h3>
+<pre><code class="bash">$ git clone https://github.com/lxqt/qtermwidget.git
+$ cd qtermwidget
+$ cmake ./
+$ make; sudo make install
 </code></pre>
 
-<h3 id="_4">更新源</h3>
-<pre><code class="bash">sudo apt-get update
-sudo apt-get upgrade
-</code></pre>
-
-<h3 id="ros_1">安装ROS</h3>
-<pre><code class="bash">sudo apt-get install ros-indigo-desktop-full
-</code></pre>
-
-<h3 id="rosdep">初始化rosdep</h3>
-<pre><code class="bash">sudo rosdep init
-</code></pre>
-
-<h3 id="rosdep_1">更新rosdep</h3>
-<pre><code class="bash">rosdep update
-</code></pre>
-
-<h3 id="_5">设置环境变量</h3>
-<pre><code class="bash">echo source /opt/ros/indigo/setup.bash &gt;&gt; ~/.bashrc
-</code></pre>
-
-<h2 id="hirop">HIROP环境搭建</h2>
-<h3 id="_6">创建工作区</h3>
-<pre><code class="bash">$ cd ~; mkdir catkin_ws
-$ cd catkin_ws; mkdir src
-$ catkin_make
-$ echo source ~/catkin_ws/devel/setup.bash &gt;&gt; ~/.bashrc
-</code></pre>
-
-<h3 id="_7">下载源码</h3>
-<pre><code class="bash">sudo apt-get install git
-cd ~/catkin_ws/src
-git clone https://github.com/HSRobot/hsr_irp.git
-</code></pre>
-
-<h3 id="_8">下载依赖项</h3>
-<pre><code class="bash">sudo apt-get install ros-indigo-industrial-core
-sudo apt-get install ros-indigo-moveit-full
-sudo apt-get install ros-indigo-serial
-sudo apt-get install ros-indigo-gazebo-ros-control
-sudo apt-get install ros-indigo-joint-trajectory-controller 
-sudo apt-get install ros-indigo-joint-state-controller
-sudo apt-get install ros-indigo-effort-controllers
-sudo apt-get install ros-indigo-position-controllers 
-</code></pre>
-
-<h3 id="_9">编译</h3>
-<pre><code class="bash">catkin_make
-</code></pre>
+<h3 id="ros_qtc_plugin_1">编译ros_qtc_plugin插件</h3>
+<p>使用qtcreator进行编译即可</p>
               
             </div>
           </div>
@@ -252,10 +226,10 @@ sudo apt-get install ros-indigo-position-controllers
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../quick-start/" class="btn btn-neutral float-right" title="快速开始">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../resource/" class="btn btn-neutral float-right" title="资源汇总">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="主页"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../" class="btn btn-neutral" title="序"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -283,10 +257,10 @@ sudo apt-get install ros-indigo-position-controllers
           <a href="https://github.com/HSRobot/HSRobot.github.io/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../quick-start/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../resource/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

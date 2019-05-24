@@ -13,6 +13,7 @@ nav:
   - 序: 'dpm/index.md'
 - 环境搭建汇总:
   - 序: 'env-setup/index.md'
+  - ros_qtc_plugin环境搭建: 'env-setup/ros_qtc_plugin.md'
 - 资源汇总: 'resource.md'
 - 问题汇总: 'problem.md'
 - 关于:

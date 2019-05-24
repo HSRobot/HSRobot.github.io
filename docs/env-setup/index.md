@@ -4,6 +4,7 @@
 ----
 #### 列表
 
+* [ros_qtc_plugin编译指南](ros_qtc_plugin.md)
 * [ORK环境搭建指南]()
 * [KinectV2环境搭建指南]()
 * [OpenNI2环境搭建指南]()
