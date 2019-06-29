@@ -7,4 +7,4 @@
 
 * [Moveit 编程指南]()
 * [Hirop Vision模块编程指南]()
-
+* [HPlugin 编程指南](hplugin_guide.md)

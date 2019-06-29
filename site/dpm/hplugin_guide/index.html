@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Hplugin编程指南 - HIROP文档库</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Hplugin\u7f16\u7a0b\u6307\u5357";
+    var mkdocs_page_input_path = "dpm/hplugin_guide.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> HIROP文档库</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">主页</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入门</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../start/install/">环境搭建</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../quick-start/">快速开始</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">参考手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../chm/">序</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">开发指南</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">序</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Hplugin编程指南</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#hplugin">HPlugin插件开发指南</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">编译安装</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">制作插件</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">调用插件</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">环境搭建汇总</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../env-setup/">序</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../env-setup/ros_qtc_plugin/">ros_qtc_plugin环境搭建</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../resource/">资源汇总</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../problem/">问题汇总</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">关于</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../about/">开源协议</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../about/">更新日志</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">HIROP文档库</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>开发指南 &raquo;</li>
+        
+      
+    
+    <li>Hplugin编程指南</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/HSRobot/HSRobot.github.io/edit/master/docs/dpm/hplugin_guide.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hplugin">HPlugin插件开发指南</h1>
+<p>HPlugin是一个轻量级的插件模块，可依赖HPlugin框架迅速为工程实现插件化。</p>
+<h2 id="_1">编译安装</h2>
+<pre><code class="bash">$ mkdir build; cd build
+$ qmake ./
+$ make ; make install
+</code></pre>
+
+<h2 id="_2">制作插件</h2>
+<h3 id="_3">声明插件接口</h3>
+<p>在接口的定义头文件中使用H_DECLARE_INTERFACE宏来声明一个接口。</p>
+<pre><code class="C++">class ISimaplePlugin{
+
+public:
+    virtual int SayHi(std::string name) = 0;
+
+};
+H_DECLARE_INTERFACE(ISimaplePlugin,&quot;ISimaplePlugin/v1.0&quot;)
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果接口处于某个命名空间中，那么该宏应当在命名空间外部使用。
+H_DECLARE_INTERFACE(namespace::ISimaplePlugin,"ISimaplePlugin/v1.0")</p>
+</div>
+<h3 id="_4">声明插件</h3>
+<p>插件都是继承于接口的，假如我们有插件A，其类名为<code>SimaplePluginA</code>，其继承于<code>ISimaplePlugin</code>。
+那么在定义插件类的头文件中，我们需要使用<code>H_DECLARE_PLUGIN</code>宏来声明一个插件，其中宏的参数是表明该插件式基于哪个接口的。</p>
+<pre><code class="C++">class SimaplePluginA:public ISimaplePlugin{
+public:
+    SimaplePluginA();
+    int SayHi(std::string name);
+};
+
+H_DECLARE_PLUGIN(ISimaplePlugin)
+</code></pre>
+
+<h3 id="_5">导出插件</h3>
+<p>经过上面的两步，定义接口和定义插件。那么接下来，我们就需要给我们定义的插件进行实现和导出，只有导出后的插件，才能被插件系统所加载。
+因此，在插件的实现文件中，我们应当使用<code>H_EXPORT_PLUGIN</code>宏来导出一个插件。</p>
+<pre><code class="C++">SimaplePluginA::SimaplePluginA(){
+
+    std::cout &lt;&lt; &quot;SimaplePluginA init&quot; &lt;&lt; std::endl;
+
+}
+
+int SimaplePluginA::SayHi(std::string name){
+
+    std::cout &lt;&lt; &quot;SimaplePluginA say = &quot; &lt;&lt; name &lt;&lt; &quot; lol&quot; &lt;&lt; std::endl;
+    return 0;
+}
+
+H_EXPORT_PLUGIN(SimaplePluginA, &quot;SimaplePluginA&quot;, &quot;1.0&quot;)
+</code></pre>
+
+<p>其中宏<code>H_EXPORT_PLUGIN</code>有三个参数
+ * 声明要导出的插件类
+ * 声明导出插件的名称 '需要和上一个参数一致'
+ * 声明导出插件的版本</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在工程配置中，应当注意生成的插件动态库的名称为"lib"+插件类名+".so"。如：插件名为<code>SimaplePluginA</code>，则其动态库名称为<code>libSimaplePluginA.so</code></p>
+</div>
+<h2 id="_6">调用插件</h2>
+<h3 id="_7">插件加载器</h3>
+<p>为了加载插件，我们需要在我们的使用插件系统的程序上，获取我们的插件加载器。</p>
+<pre><code class="C++">int main(){
+    HPluginLoader *loader
+    loader = HPluginLoader::getLoader();
+}
+</code></pre>
+
+<p>通过HPluginLoader::getLoader()函数，来获取当前系统的插件加载器指针。</p>
+<p>在加载完插件加载器后，我们需要为插件加载器指定，插件的加载路径，而这一动作我们通过</p>
+<pre><code class="C++">loader-&gt;setPath(&quot;./&quot;);
+</code></pre>
+
+<p>这一函数来指定，如果传递的路径为空，那么插件加载器便会通过LD_LIBRARY_PATH环境变量来搜索相关的库。</p>
+<h3 id="_8">加载插件</h3>
+<p>获取完插件加载器和设置相关路径后，便可以通过插件加载器来加载相关的插件了。我们通过一个Hplugin来描述一个插件。</p>
+<pre><code class="C++">    HPlugin *p;
+        p = loader-&gt;load(&quot;SimaplePluginA&quot;);
+
+    if(!p){
+        cout &lt;&lt; &quot;load plugin error&quot; &lt;&lt; endl;
+        return -1;
+    }
+</code></pre>
+
+<p>当我们通过load函数加载插件失败时，它将会返回一个空指针。开发者很有必要对该值进行判断。</p>
+<h3 id="_9">实例化插件</h3>
+<p>在我们通过上面几步后，我们拿到了一个插件对象Hplgun，但是这个插件对象中并不是我们真正的插件类的指针。
+我们还需要将其实例化后，才能拿到插件的指针。</p>
+<pre><code class="C++">    ISimaplePlugin *pluginPtr;
+    pluginPtr = p-&gt;instance&lt;ISimaplePlugin&gt;();
+
+    if(!pluginPtr){
+        cout &lt;&lt; &quot;instance plugin error&quot; &lt;&lt; endl;
+        return -1;
+    }
+</code></pre>
+
+<p>我们将通过<code>instance</code>函数来获取一个插件的实例指针，它是一个模板函数，需要指明要实例化的插件接口类。通过模板函数来防止开发者将错误的实例赋值给插件。
+如果通过instance获取实例化插件失败（类型错误或其他原因）时，将会返回一个空指针。</p>
+<p>我们通过<code>instance</code>获取到插件实例后，便可以使用该实例来使用插件的功能了。</p>
+<pre><code class="C++">    pluginPtr-&gt;SayHi(&quot;FSHS&quot;);
+</code></pre>
+
+<p>当使用完插件后，我们需要将插件进行卸载。</p>
+<pre><code class="C++">    loader-&gt;unload(p);
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../env-setup/" class="btn btn-neutral float-right" title="序">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../" class="btn btn-neutral" title="序"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/HSRobot/HSRobot.github.io/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../env-setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
