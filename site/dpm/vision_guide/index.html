@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Vision模块编程指南 - HIROP文档库</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Vision\u6a21\u5757\u7f16\u7a0b\u6307\u5357";
+    var mkdocs_page_input_path = "dpm/vision_guide.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> HIROP文档库</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">主页</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入门</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../start/install/">环境搭建</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../quick-start/">快速开始</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">参考手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../chm/">序</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">开发指南</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">序</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hplugin_guide/">Hplugin编程指南</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Vision模块编程指南</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#_1">引言</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">准备</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_3">接口</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">模块</a></li>
+        
+            <li><a class="toctree-l4" href="#_9">开发语言</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_10">开始</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#c">C++</a></li>
+        
+            <li><a class="toctree-l4" href="#python">Python</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">环境搭建汇总</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../env-setup/">序</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../env-setup/ros_qtc_plugin/">ros_qtc_plugin环境搭建</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../resource/">资源汇总</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../problem/">问题汇总</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">关于</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../about/">开源协议</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../about/">更新日志</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">HIROP文档库</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>开发指南 &raquo;</li>
+        
+      
+    
+    <li>Vision模块编程指南</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/HSRobot/HSRobot.github.io/edit/master/docs/dpm/vision_guide.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">引言</h1>
+<p>通过该学习该指南可以了解开发HIROP平台vision模块的基础流程</p>
+<h1 id="_2">准备</h1>
+<p>在开始前，我们需要熟悉和了解以下概念。</p>
+<h2 id="_3">接口</h2>
+<p>在HIROP vision模块中，将开发接口分为了用户接口和开发者接口。</p>
+<h3 id="_4">用户接口</h3>
+<p>用户接口是提供给想使用VISION识别功能开发机器人应用程序的开发者使用的。</p>
+<h3 id="_5">开发者接口</h3>
+<p>开发者接口则是为那些想将自己或其他视觉算法集成至vision中算法开发者和集成者使用的。
+而本文主要就是描述如何将一个视觉算法集成至vision中。</p>
+<h2 id="_6">模块</h2>
+<p>为了集成视觉算法至VISION模块中，我们还需要了解以下概念：训练器和识别器。在集成相关算法时，实际上就是编写这两个模块。</p>
+<h3 id="_7">训练器</h3>
+<p>由于VISION模块可以适配使用机器学习及其他需要进行训练的视觉算法，因此VISION模块中独立分出来了训练器的概念：用户算法训练功能实现的模块。
+如果使用的算法不需要进行训练，那么则无需为算法编写训练器。</p>
+<h3 id="_8">识别器</h3>
+<p>识别器就是用户算法进行实际物体识别的模块，所有的用户算法都必须实现改模块。</p>
+<h2 id="_9">开发语言</h2>
+<p>Vision模块支持使用Python和C++两种语言来编写相关算法的实例。不管使用何种语言其开发者接口都是一致的。</p>
+<hr />
+<h1 id="_10">开始</h1>
+<p>通过了解了上述概念后我们就开始进入我们的开发中了。现在假设我们有一物体识别算法A，其识别之前需要进行训练。因此我们需要开发两个模块：A训练器和A识别器。
+下面我将分别讲解C++和Python如何编写算法实例。</p>
+<hr />
+<h2 id="c">C++</h2>
+<h3 id="_11">编写训练器</h3>
+<pre><code class="C++">// 开发者接口源文件
+#include &lt;vision/c_base_trainer.h&gt;
+
+class ATrainer : public CBaseTrainer{
+
+public:
+    ATrainer();
+
+    /**
+     * @brief   A训练器的具体训练实现函数
+     * @return  0 训练成功 -1 训练失败
+     */
+    int train(){
+        /**
+         *  具体训练的实现
+         */
+    }
+
+    /**
+     * @brief   解析由创建传递过来的算法的配置参数
+     * @param
+     * @return  0 成功 -1 失败
+     */
+    int parseConfig(const YAML::Node &amp;node){
+        /**
+         *  解析参数，比如获取训练的次数，数据集的的路径等
+         */
+    }
+
+    /**
+     * @brief   获取训练进度
+     * @param
+     * @return  0 &gt; 获取失败 &gt;=0 进度
+     */
+    int feedback(){
+        /**
+         *  获取并返回当前的训练进度
+         */
+    }
+
+    /**
+     * @brief   保存训练结果
+     * @param   保存路径
+     * @return  0 成功 -1 失败
+     */
+    int saveData(std::string path){
+        /**
+         *  保存相关训练的结果，保存在path路径下
+         */
+    }
+
+}
+// 定义该类为一个插件，继承自训练器
+H_DECLARE_PLUGIN(ITrainer)
+H_EXPORT_PLUGIN(ATrainer, &quot;ATrainer&quot;, &quot;1.0&quot;)
+
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在编写算法实例时，我们的训练器实例需要继承与<code>ITrainer</code>接口。但是在这里我们却继承了<code>CBaseTrainer</code>？这是为什么呢？
+主要是因为Vision模块中为训练器提供了辅助类，帮助我们实现了部分简单的<code>ITrainer</code>接口，降低开发者的开发难度。</p>
+</div>
+<p>在ATrainer中，我需要实现：</p>
+<ul>
+<li><code>int train()</code>：该函数就是主要进行物体训练的接口了，算法的具体训练功能在该接口中（阻塞）实现。</li>
+<li><code>int parseConfig()</code>：对于需要一些参数的训练器而言，该函数主要是用于从Vision模块中传递相关的训练器参数的，传递是Yaml对象。对于无需训练参数的算法实例，则无需实现。</li>
+<li><code>int feedback()</code>：该函数主要的目的在于向Vision模块反馈当前训练的进度，如果想为你的训练器提供进度获取的功能，则可在该函数中具体实现获取进度并返回，如不提供进度功能，则无需实现。</li>
+<li><code>int saveData()</code>：由于当期VISION模块中不提供数据保存相关的接口，这就意味着开发者需要自己编写代码来保存相关的训练数据。不过Vison为了方便管理训练数据，会为每个训练器提供一个专有的目录。因此，训练器需要将所有的训练数据保存至指定路径path中。</li>
+</ul>
+<p>实现上面的四个接口后，我们的Vision便可以识别和使用ATrainer了。不过在最后，我们需要声明，我们这个类是一个插件。<code>因为在Vision中，所有的算法实例都是以插件的形式存在</code></p>
+<pre><code class="C++">    H_DECLARE_PLUGIN(ITrainer)
+    H_EXPORT_PLUGIN(ATrainer, &quot;ATrainer&quot;, &quot;1.0&quot;)
+</code></pre>
+
+<p>对于该宏的使用和定义可参考<a href="">HPluin开发指南</a>。</p>
+<h3 id="_12">训练器接口调用顺序</h3>
+<p>对于上述ATrainer实现的接口，Vision模块对训练接口的调用时机如下。</p>
+<ol>
+<li>Vision模块首先根据用户请求，调用<code>ATrainer</code>构造函数</li>
+<li>然后调用<code>parseConfig()</code>向ATrainer传递训练的信息，如：物体名称、物体模型路径、数据集路径等</li>
+<li>在通过parseConfig解析完相关参数后，vision模块就会调用<code>train()</code>接口来进行训练</li>
+<li>当通过train()训练完毕后，Vision模块便会调用<code>saveData()</code>接口来通知ATrainer进行数据的保存</li>
+</ol>
+<h3 id="_13">编写识别器</h3>
+<pre><code class="C++">
+#include &lt;vision/c_base_detector.h&gt;
+class ADetector : public CBaseDetector{
+
+    /**
+     * @brief   实现具体的识别功能
+     * @return  0 成功 -1 失败
+     */
+    int detection(){
+        /**
+         *  编写具体的识别的代码
+         */
+    }
+
+    /**
+     * @brief   加载相关的训练结果
+     * @param   [objectName] 需要识别的物体
+     * @return  0 成功 -1 失败
+     */
+    int loadData(const std::string path, const std::string objectName){
+        /**
+         *  编写从path路径下加载相关的训练文件，如果有的话。具体如何加载是和相关训练器约定好的
+         */
+    }
+
+    /**
+     * @brief   获取识别的结果
+     * @param[out] poses， 保存识别的结果
+     * @return  0 成功 -1 失败
+     */
+    int getResult(std::vector&lt;pose&gt; &amp;poses){
+        /**
+         *  获取具体的识别结果，返回的是位姿
+         */
+    }
+
+    /**
+     * @brief   向检测器传递图像数据
+     * @param   [inputImg] 输入，传递的图像
+     * @return  void
+     */
+    void setDepthImg(const cv::Mat &amp;inputImg){
+        /**
+         *  编写保存相关深度图的代码
+         */
+    }
+
+    /**
+     * @brief   向检测器传递图像数据
+     * @param   [inputImg] 输入，传递的图像
+     * @return  void
+     */
+    void setColorImg(const cv::Mat &amp;inputImg){
+        /**
+         *  编写保存相关彩色图的代码
+         */
+    }
+
+    H_DECLARE_PLUGIN(IDetector)
+    H_EXPORT_PLUGIN(ADetector, &quot;ADetector&quot;, &quot;1.0&quot;)
+
+}
+
+</code></pre>
+
+<p>在编写相关算法实例的识别器的时候，我们的识别器实例需要继承<code>IDetector</code>，而此处继承了CBaseDetector，具体原因也是和训练器说的一致。</p>
+<p>在ADetector中，我们需要实现以下接口</p>
+<ul>
+<li><code>int detection()</code>：该接口主要就是实现具体的物体识别逻辑，该接口会由Vision模块调用</li>
+<li><code>int loadData()</code>：该接口的主要目的就是为了加载被识别物体的训练参数。而相关参数就是保存在path路径下的。而具体的数据的保存格式则是ATrainer定义的。</li>
+<li><code>int getResult()</code>：该接口的主要作用就是当识别结束后，Vision调用该接口来获取具体的识别结果。应次在该结果中实现识别结果的返回。</li>
+<li><code>void setDepthImg()</code>：该接口的主要作用就是保存由Vision模块传递给识别器的深度图像数据，供识别的时候使用，如果识别器识别不需要深度图，则该接口无需实现。</li>
+<li><code>void setColorImg()</code>：该接口的主要作用就是保存由Vision模块传递给识别器的彩色图像数据，供识别的时候使用，如果识别器识别不需要彩色图，则该接口无需实现。</li>
+</ul>
+<p>同样的，在实现完上诉接口后，我们需要导出我们的识别器</p>
+<pre><code class="C++">    H_DECLARE_PLUGIN(IDetector)
+    H_EXPORT_PLUGIN(ADetector, &quot;ADetector&quot;, &quot;1.0&quot;)
+</code></pre>
+
+<p>对于该宏的使用和定义可参考<a href="">HPluin开发指南</a>。</p>
+<h3 id="_14">训练器接口调用顺序</h3>
+<p>对于上述ADetector实现的接口，Vision模块对其接口的调用时机如下。</p>
+<ol>
+<li>Vision模块首先根据用户请求，调用<code>ADetector()</code>构造函数</li>
+<li>然后调用ADetector中的<code>loadData()</code>接口，来通知ADetector来加载被识别物体的训练参数</li>
+<li>在加载完相关参数后，Vision模块便会通过<code>setDepthImg()</code>和<code>setColorImg()</code>接口向ADetector传递待识别的图像数据</li>
+<li>在传递完相关参数后，Vision模块便会调用ADetector的<code>detection()</code>接口来进行物体识别</li>
+<li>当通过detection()接口执行完成，即识别完成后，Vision模块就会调用<code>getResult()</code>接口来获取识别的结果</li>
+</ol>
+<h3 id="_15">编译</h3>
+<p>使用下面的Cmake文件来进行工程配置</p>
+<pre><code class="cmake">cmake_minimum_required (VERSION 2.6)
+project (VisionDemo)
+
+add_library(ADetector ADetector.cpp)
+add_library(ATrainer ATrainer.cpp)
+
+find_package(hirop_vision REQUIRED)
+INCLUDE_DIRECTORIES(${hirop_vision_INCLUDE_DIRS})
+TARGET_LINK_LIBRARIES(ADetector ${hirop_vision_LIBRARIES})
+TARGET_LINK_LIBRARIES(ATrainer ${hirop_vision_LIBRARIES})
+</code></pre>
+
+<pre><code class="bash">$ cmake ./
+$ make
+$ export VISION_PLUGIN_PATH=$VISION_PLUGIN_PATH:\`pwd\`
+</code></pre>
+
+<h3 id="_16">测试</h3>
+<p>可使用以下指令进行测试</p>
+<pre><code class="bash">$ rosrun vision_bridge vision_bridge
+$ rosservice call /detection cokecan A 0 &quot;&quot; 
+</code></pre>
+
+<p>其中第二条指令<code>$ rosservice call /detection cokecan A 0 ""</code></p>
+<ul>
+<li><code>cokecan</code>: 待识别物体名称</li>
+<li><code>A</code>: 识别器名称</li>
+<li><code>0</code>: 识别器的类别， 0为C++ 1为python</li>
+</ul>
+<hr />
+<h2 id="python">Python</h2>
+<p>对于Python开发者，所有的接口的和C++版本均一致，只是将编程语言变成了Python。下面我们只以编写识别器来作为例子讲解即可。</p>
+<h3 id="_17">编写识别器</h3>
+<pre><code class="python">
+class ADetector:
+
+    def __init__(self):
+        # do some init 
+
+    def detection(self):
+        # do something detection
+
+    def loadData(self, path, objectname):
+        # load data from path
+
+    def getResult(self, poses):
+        # returen result
+
+    def setDepthImg(self, img):
+        # save depth image
+
+    def setColorImg(self, img):
+        # save color image
+</code></pre>
+
+<p>实现一个Python版本的识别器只需实现一个拥有上述接口的类即可。其作用和调用顺序和C++版本的一致</p>
+<h3 id="_18">编译</h3>
+<p>无需编译，只需将python源文件命名为ADetector.py并放置在VISION_PLUGIN_PATH环境变量路径下即可</p>
+<h3 id="_19">测试</h3>
+<pre><code class="bash">$ rosrun vision_bridge vision_bridge
+$ rosservice call /detection cokecan A 1 &quot;&quot; 
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../env-setup/" class="btn btn-neutral float-right" title="序">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../hplugin_guide/" class="btn btn-neutral" title="Hplugin编程指南"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/HSRobot/HSRobot.github.io/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../hplugin_guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../env-setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
