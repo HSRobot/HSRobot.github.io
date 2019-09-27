@@ -13,6 +13,7 @@ nav:
   - 序: 'dpm/index.md'
   - Hplugin编程指南: 'dpm/hplugin_guide.md'
   - Vision模块编程指南: 'dpm/vision_guide.md'
+  - 感知模块编程指南: 'dpm/perception_guide.md'
 - 环境搭建汇总:
   - 序: 'env-setup/index.md'
   - ros_qtc_plugin环境搭建: 'env-setup/ros_qtc_plugin.md'

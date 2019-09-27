@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>感知模块编程指南 - HIROP文档库</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u611f\u77e5\u6a21\u5757\u7f16\u7a0b\u6307\u5357";
+    var mkdocs_page_input_path = "dpm/perception_guide.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> HIROP文档库</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">主页</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">入门</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../start/install/">环境搭建</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../quick-start/">快速开始</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">参考手册</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../chm/">序</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">开发指南</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">序</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hplugin_guide/">Hplugin编程指南</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../vision_guide/">Vision模块编程指南</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">感知模块编程指南</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#hirop">HIROP感知模块编程指南</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">感知模块介绍</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">感知模块的框架</a></li>
+        
+            <li><a class="toctree-l4" href="#graph">简单的Graph</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_3">编程</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_4">下载源码</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">编写过滤器</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">代码解析</a></li>
+        
+            <li><a class="toctree-l4" href="#_12">测试过滤器</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_13">完成</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">环境搭建汇总</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../env-setup/">序</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../env-setup/ros_qtc_plugin/">ros_qtc_plugin环境搭建</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../resource/">资源汇总</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../problem/">问题汇总</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">关于</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../about/">开源协议</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../about/">更新日志</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">HIROP文档库</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>开发指南 &raquo;</li>
+        
+      
+    
+    <li>感知模块编程指南</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/HSRobot/HSRobot.github.io/edit/master/docs/dpm/perception_guide.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hirop">HIROP感知模块编程指南</h1>
+<p>通过学习本指南可以掌握如何开发一个HIROP的感知模块插件。</p>
+<h2 id="_1">感知模块介绍</h2>
+<p>hirop perception模块可以使我们的机器人具有感知能力。</p>
+<p>在HIROP中，将感知分为两部分：前端和后端。
+其中，前端指通过各种传感器（如：视觉、触觉、听觉）及相关处理算法（如：计算机视觉、PCL）以尽量精确的方式进行环境建模。
+后端指的是，当通过前端将环境建模后经过一系列诸如语义分割、物体识别、物体分割等方法将物理世界以抽象的方式进行表达。
+当前HIROP的感知模块仅实现了“前端”。</p>
+<h2 id="_2">感知模块的框架</h2>
+<p>感知模块采用了实现了管道流和图计算的<a href="http://plasmodic.github.io/ecto/">ECTO</a>作为主框架。其中有四个关键的概念：源（Source）、过滤器（Filter）、发布器（Publisher）、图（Graph）。</p>
+<ul>
+<li>1，当数据从传感器中读出后，会按顺序流向感知模块的不同过滤器（从传感器中获取数据的过滤器就是Source）；</li>
+<li>2，当数据经过过滤器时，过滤器会通过相关相关算法对数据进行修改（这就是Filter的作用）；</li>
+<li>3，当数据流过所有的过滤器后，会通过一个过滤器将数据发布出去（发布数据的特殊过滤器就是Publisher）；</li>
+<li>4，感知模块可以根据需求随意的连接相关过滤器来构成一个图（Graph可以根据需求随意变化）。</li>
+</ul>
+<p><img alt="avatar" src="../img/ecto.jpg" /></p>
+<h2 id="graph">简单的Graph</h2>
+<p><img alt="avatar" src="../img/hirop_perception.jpg" /></p>
+<h1 id="_3">编程</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>当前感知模块的所有数据均为点云，下面的所有教程均以编写点云的过滤器为例子。</p>
+</div>
+<hr />
+<h2 id="_4">下载源码</h2>
+<p>HIROP感知模块是作为HIROP的一个子模块存在，因此需要下载完整的HIROP工程。</p>
+<pre><code class="bash">$ git clone https://github.com/HSRobot/hirop.git
+$ cd hirop ; mkdir build; cd build
+$ cmake ../
+$ make
+$ make install
+$ echo 'PYTHONPATH=/usr/local/lib/python2.7/dist-packages/hirop_perecption/:$PYTHONPATH' &gt;&gt; ~/.bashrc
+</code></pre>
+
+<hr />
+<h2 id="_5">编写过滤器</h2>
+<p>在hirop/src/perception/filter/中创建过滤器的源文件(myfilter.cpp)和头文件(myfilter.h)。</p>
+<p><code>myfilter.h</code></p>
+<pre><code class="c++">#pragma once
+#include &lt;ecto/ecto.hpp&gt;
+#include &lt;ecto_pcl/ecto_pcl.hpp&gt;
+
+using ecto::tendrils;
+namespace hirop_perception{
+class MyFilter{
+
+public:
+    /**
+     * @brief MyFilter      构造函数
+     */
+    MyFilter(){}
+
+    /**
+     *  析构函数
+     */
+    ~MyFilter(){}
+
+    /**
+     * @brief   定义过滤器参数
+     */
+    static void declare_params(tendrils&amp; params);
+
+    /**
+     * @brief   定义过滤器输入输出
+     */
+    static void declare_io(const tendrils&amp; params, tendrils&amp; in, tendrils&amp; out);
+
+    /**
+     * @brief   过滤器的过滤实现
+     */
+    template &lt;typename Point&gt;
+    int process(const tendrils&amp; inputs, const tendrils&amp; outputs,
+                boost::shared_ptr&lt;const pcl::PointCloud&lt;Point&gt; &gt;&amp; input);
+
+    /**
+     * @brief   过滤器的配置
+     */
+    void configure(const tendrils&amp; params, const tendrils&amp; inputs, const tendrils&amp; outputs);
+
+private:
+    float _z;
+};
+}
+
+</code></pre>
+
+<hr />
+<p><code>myfilter.cpp</code></p>
+<pre><code class="C++">#include &quot;myfilter.h&quot;
+
+using namespace hirop_perception;
+
+void MyFilter::declare_params(tendrils&amp; params){
+    params.declare&lt;float&gt;(&quot;Z&quot;, &quot;The pointcolud vaild Z area&quot;, 5);
+}
+
+void MyFilter::declare_io(const ecto::tendrils &amp;params, ecto::tendrils &amp;in, ecto::tendrils &amp;out){
+    in.declare&lt;ecto::pcl::PointCloud&gt;(&quot;input&quot;, &quot;The colud to filter&quot;);
+    out.declare&lt;ecto::pcl::PointCloud&gt;(&quot;output&quot;, &quot;The colud to out&quot;);
+}
+
+void MyFilter::configure(const ecto::tendrils &amp;params, const ecto::tendrils &amp;inputs, const ecto::tendrils &amp;outputs){
+    _z = params.get&lt;float&gt;(&quot;Z&quot;);
+}
+
+template&lt;typename Point&gt;
+int MyFilter::process(const tendrils&amp; inputs, const tendrils&amp; outputs,
+                boost::shared_ptr&lt;const pcl::PointCloud&lt;Point&gt; &gt;&amp; input){
+
+    typename pcl::PointCloud&lt;Point&gt;::Ptr outPointCloud(new pcl::PointCloud&lt;Point&gt;);
+
+    int size = input-&gt;points.size();
+
+    for(int i =0; i &lt; size; i++){
+        if(input-&gt;points[i].z &lt; _z)
+            outPointCloud-&gt;points.push_back(cloud-&gt;points[i]);
+    }
+
+    outPointCloud-&gt;height = 1;
+    outPointCloud-&gt;width = outPointCloud-&gt;points.size();
+
+    outputs.get&lt;ecto::pcl::PointCloud&gt;(&quot;output&quot;) = ecto::pcl::PointCloud(outPointCloud);
+
+    return ecto::OK;
+}
+
+ECTO_CELL(hirop_perception, ecto::pcl::PclCell&lt;MyFilter&gt;,\
+          &quot;VoxelFilter&quot;, &quot;The point cloud voxel filter&quot;)
+
+</code></pre>
+
+<h2 id="_6">代码解析</h2>
+<h3 id="_7">必要的头文件</h3>
+<p>我们需要在filter.h中导入必要的头文件</p>
+<pre><code class="C++">#include &lt;ecto/ecto.hpp&gt;
+#include &lt;ecto_pcl/ecto_pcl.hpp&gt;
+</code></pre>
+
+<h3 id="_8">过滤器的关键函数</h3>
+<ul>
+<li><em>declare_params</em>函数：</li>
+</ul>
+<pre><code class="C++">void MyFilter::declare_params(tendrils&amp; params){
+    params.declare&lt;float&gt;(&quot;Z&quot;, &quot;The pointcolud vaild Z area&quot;, 5);
+}
+</code></pre>
+
+<p>该函数用于声明过滤器的参数。在下面的代码里，我们声明了MyFilter这个过滤器有个名为<code>Z</code>，类型为<code>float</code>的参数。用于配置过滤器应当过滤什么范围以外的数据。</p>
+<hr />
+<ul>
+<li><em>declare_io</em>函数：</li>
+</ul>
+<pre><code class="C++">void MyFilter::declare_io(const ecto::tendrils &amp;params, ecto::tendrils &amp;in, ecto::tendrils &amp;out){
+    in.declare&lt;ecto::pcl::PointCloud&gt;(&quot;input&quot;, &quot;The colud to filter&quot;);
+    out.declare&lt;ecto::pcl::PointCloud&gt;(&quot;output&quot;, &quot;The colud to out&quot;);
+}
+</code></pre>
+
+<p>该函数用于声明过滤器的输入和输出。每个过滤器均有输入和输出。在本例中我们有一个名为<code>input</code>，类型为<code>ecto::pcl::PointCloud</code>的输入，用于从上一级过滤器中介绍点云。
+以及一个名为<code>output</code>，类型为<code>ecto::pcl::PointCloud</code>的输出，用于将点云输出到下一级过滤器中。</p>
+<hr />
+<ul>
+<li><em>configure</em>函数：</li>
+</ul>
+<pre><code class="C++">void MyFilter::configure(const ecto::tendrils &amp;params, const ecto::tendrils &amp;inputs, const ecto::tendrils &amp;outputs){
+    _z = params.get&lt;float&gt;(&quot;Z&quot;);
+}
+</code></pre>
+
+<p>该函数的作用在于：当过滤器被初始化时来完成过滤器内部的初始化，比如处理相关参数。在本例中，configure函数只是将过滤器参数<code>Z</code>保存起来而已。</p>
+<hr />
+<ul>
+<li><em>process</em>函数：</li>
+</ul>
+<pre><code class="C++">template&lt;typename Point&gt;
+int MyFilter::process(const tendrils&amp; inputs, const tendrils&amp; outputs,
+                boost::shared_ptr&lt;const pcl::PointCloud&lt;Point&gt; &gt;&amp; input){
+
+    typename pcl::PointCloud&lt;Point&gt;::Ptr outPointCloud(new pcl::PointCloud&lt;Point&gt;);
+
+    int size = input-&gt;points.size();
+
+    for(int i =0; i &lt; size; i++){
+        if(input-&gt;points[i].z &lt; _z)
+            outPointCloud-&gt;points.push_back(cloud-&gt;points[i]);
+    }
+
+    outPointCloud-&gt;height = 1;
+    outPointCloud-&gt;width = outPointCloud-&gt;points.size();
+
+    outputs.get&lt;ecto::pcl::PointCloud&gt;(&quot;output&quot;) = ecto::pcl::PointCloud(outPointCloud);
+
+    return ecto::OK;
+}
+</code></pre>
+
+<p>整个过滤器最重要的函数，用于对数据进行处理。在本例中，我们只是简单的将Z轴大于<code>_z</code>的点云给丢弃。然后通过下面的两行代码将过滤后的点云输出至下一级过滤器中。</p>
+<pre><code class="C++">    outputs.get&lt;ecto::pcl::PointCloud&gt;(&quot;output&quot;) = ecto::pcl::PointCloud(outPointCloud);
+    return ecto::OK;
+</code></pre>
+
+<hr />
+<h3 id="_9">导出过滤器</h3>
+<p>最后，我们需要通过下面的代码来导出我们刚刚完成的过滤器。</p>
+<pre><code class="C++">ECTO_CELL(hirop_perception, ecto::pcl::PclCell&lt;MyFilter&gt;,\
+          &quot;MyFilter&quot;, &quot;My first filter&quot;)
+</code></pre>
+
+<p><code>ECTO_CELL</code>宏的参数描述：
+- hirop_perception：生成的感知模块的名称
+- ecto::pcl::PclCell<MyFilter>：声明实习过滤器功能的类
+- "MyFilter"：过滤器的名称
+- "My first filter"：过滤器的描述</p>
+<hr />
+<h3 id="_10">配置工程</h3>
+<p>在完成代码的编写后，我们还需要配置相关的工程来将我们的过滤器编译。
+在hirop/src/perception/filter/CMakeLists.txt的ectomodule函数前中添加以下代码</p>
+<pre><code class="CMake">SET(SOURCES
+    ${SOURCES}
+    myfilter.cpp)
+</code></pre>
+
+<hr />
+<h3 id="_11">编译工程</h3>
+<pre><code class="bash">$ cd hirop/build
+$ make
+$ sudo make install
+</code></pre>
+
+<hr />
+<h2 id="_12">测试过滤器</h2>
+<p>在完成上述的教程后，我们就可以来测试下我们的过滤器，看看其是否有效。首先让我们创建一个python文件:perception_test.py，输入以下内容：</p>
+<pre><code class="Python">#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+
+import hirop_perception
+import rospy
+import ecto, ecto_pcl, ecto_ros
+
+if __name__==&quot;__main__&quot;:
+
+    # 初始化ROS节点
+    ecto_ros.init(sys.argv, &quot;perception_test&quot;)
+    rospy.init_node('ros_test')
+
+    # 构造一个从ROS话题中获取数据的过滤器，第一个参数是过滤器的名称，第二个参数是话题名称，第三个是将点云转换到的目标坐标系
+    rosSource = hirop_perception.PointCloudRos('source', topic_name=&quot;/camera/depth/points&quot;, world_frame='base_link')    
+
+    # 构造一个将过滤器输出发布到ROS话题的过滤器，第一个参数是过滤器的名称，第二参数是发布的点云的参考坐标系
+    publisher = hirop_perception.PointCloudPublish(&quot;publisher&quot;, frame_id=&quot;base_link&quot;)
+
+    # 构造一个我们刚刚制作的自己的过滤器，设置过滤距离为2米
+    myFilter = hirop_perception.MyFilter('myFilter', Z=2)
+
+    # 构造一个点云可视化窗口过滤器
+    pclViewer = ecto_pcl.CloudViewer(&quot;viewer&quot;, window_name=&quot;PCD Viewer&quot;)
+
+    # 声明一个计算图
+    testPlasm = ecto.Plasm()
+
+    # 定义计算图的结构
+    testPlasm.connect(rosSource[&quot;output&quot;] &gt;&gt; self.myFilter[&quot;input&quot;], self.myFilter[&quot;output&quot;] &gt;&gt; self.pclViewer[&quot;input&quot;], self.pclFunsion[&quot;output&quot;] &gt;&gt; self.publisher[&quot;input&quot;])
+
+    # 运行计算图
+    sched = ecto.Scheduler(lookPlasm)
+
+    # 进入ROS的消息循环
+    rospy.spin()
+</code></pre>
+
+<p>直接运行脚本后，在接收到点云的时候会弹出一个窗口，正常的情况下应该可以看到Z大于2m的点云全部被过滤掉了。</p>
+<h1 id="_13">完成</h1>
+<p>至此，所有教程均已结束</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../env-setup/" class="btn btn-neutral float-right" title="序">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../vision_guide/" class="btn btn-neutral" title="Vision模块编程指南"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/HSRobot/HSRobot.github.io/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../vision_guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../env-setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
