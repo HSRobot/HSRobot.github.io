@@ -9,6 +9,7 @@ nav:
   - 快速开始: 'quick-start.md'
 - 参考手册: 
   - 序: 'chm/index.md'
+  - agv使用手册: 'chm/agv_chm.md'
 - 开发指南: 
   - 序: 'dpm/index.md'
   - Hplugin编程指南: 'dpm/hplugin_guide.md'
